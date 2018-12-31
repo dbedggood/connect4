@@ -1,7 +1,10 @@
 import React from "react"
 import Square from "./components/Square"
-import red from "./resources/c4r.png"
-import yellow from "./resources/c4y.png"
+import redCoin from "./resources/c4r.png"
+import yellowCoin from "./resources/c4y.png"
+
+const red = redCoin
+const yellow = yellowCoin
 
 class Board extends React.Component {
   constructor(props) {
