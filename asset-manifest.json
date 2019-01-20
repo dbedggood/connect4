@@ -1,15 +1,15 @@
 {
-  "main.css": "/connect4/static/css/main.7735bc11.chunk.css",
-  "main.js": "/connect4/static/js/main.feba9725.chunk.js",
-  "main.js.map": "/connect4/static/js/main.feba9725.chunk.js.map",
+  "main.css": "/connect4/static/css/main.2cd04d1c.chunk.css",
+  "main.js": "/connect4/static/js/main.c24a8052.chunk.js",
+  "main.js.map": "/connect4/static/js/main.c24a8052.chunk.js.map",
   "static/js/1.ac9ae1ed.chunk.js": "/connect4/static/js/1.ac9ae1ed.chunk.js",
   "static/js/1.ac9ae1ed.chunk.js.map": "/connect4/static/js/1.ac9ae1ed.chunk.js.map",
   "runtime~main.js": "/connect4/static/js/runtime~main.d141bee2.js",
   "runtime~main.js.map": "/connect4/static/js/runtime~main.d141bee2.js.map",
-  "static/css/main.7735bc11.chunk.css.map": "/connect4/static/css/main.7735bc11.chunk.css.map",
+  "static/css/main.2cd04d1c.chunk.css.map": "/connect4/static/css/main.2cd04d1c.chunk.css.map",
   "static/media/c4r.png": "/connect4/static/media/c4r.90fdc204.png",
   "static/media/c4y.png": "/connect4/static/media/c4y.7d207dc0.png",
   "index.html": "/connect4/index.html",
-  "precache-manifest.186725064bac11e7ca0579cb5ec4083e.js": "/connect4/precache-manifest.186725064bac11e7ca0579cb5ec4083e.js",
+  "precache-manifest.434799a3db5440dd0596740b49b83d11.js": "/connect4/precache-manifest.434799a3db5440dd0596740b49b83d11.js",
   "service-worker.js": "/connect4/service-worker.js"
 }
