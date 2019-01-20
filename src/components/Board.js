@@ -10,7 +10,8 @@ class Board extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      columns: new Array(7).fill(0).map(() => new Array(6).fill(null))
+      columns: new Array(7).fill(0).map(() => new Array(6).fill(null)),
+      turn: red
     }
   }
 
@@ -25,12 +26,17 @@ class Board extends React.Component {
 
   handleClick(colNum) {
     const newCols = this.state.columns.slice();
+    let nextPlayer = this.state.turn
 
     const level = newCols[colNum].filter(x => x !== null).length
     if (level >= 6) {return}
 
-    newCols[colNum][level] = 'X'
-    this.setState({columns: newCols})
+    newCols[colNum][level] = nextPlayer
+    nextPlayer = nextPlayer == red? yellow : red
+    this.setState({
+      columns: newCols,
+      turn: nextPlayer
+    })
     
   }
 
