@@ -5,30 +5,34 @@ body {
 }
 
 .circle {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background-color: #fff;
-  font-size: 25px;
   font-weight: bold;
-  line-height: 35px;
+  line-height: 50px;
 }
 
 .circle img {
-  height: 35px;
-  width: 35px;
+  height: 50px;
+  width: 50px;
 }
 
 .square {
   background-color: blue;
-  color: black;
+  font-weight: bold;
+  font-size: 3em;
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   width: 50px;
   height: 50px;
   display: block;
-  padding-right: 10px;
+  border-width: 10px;
+  border-color: rgb(0, 0, 236);
+  border-style: groove;
 }
 
 .column {
@@ -38,4 +42,19 @@ body {
 
 .game-board {
   display: inline-block;
+  padding: 3px;
+  background-color: blue;
+}
+
+.status {
+  margin-top: 0px;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
