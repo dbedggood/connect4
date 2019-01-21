@@ -11,7 +11,7 @@ class Board extends React.Component {
     super(props)
     this.state = {
       columns: new Array(7).fill(0).map(() => new Array(6).fill(null)),
-      turn: red
+      lastMove: [yellow, null, null]
     }
   }
 
@@ -25,19 +25,20 @@ class Board extends React.Component {
   }
 
   handleClick(colNum) {
-    const newCols = this.state.columns.slice();
-    let nextPlayer = this.state.turn
+    const newCols = this.state.columns.slice()
+    let lastPlayer = this.state.lastMove[0]
 
     const level = newCols[colNum].filter(x => x !== null).length
     if (level >= 6) {return}
 
-    newCols[colNum][level] = nextPlayer
-    nextPlayer = nextPlayer == red? yellow : red
+    lastPlayer = lastPlayer === red? yellow : red
+
+    newCols[colNum][level] = lastPlayer
+
     this.setState({
       columns: newCols,
-      turn: nextPlayer
+      lastMove: [lastPlayer, colNum, level]
     })
-    
   }
 
   render() {
