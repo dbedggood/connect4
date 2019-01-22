@@ -7,6 +7,7 @@ const red = redCoin
 const yellow = yellowCoin
 
 class Board extends React.Component {
+  
   constructor(props) {
     super(props)
     this.state = {
@@ -15,13 +16,10 @@ class Board extends React.Component {
     }
   }
 
-  renderColumn(colNum) {
-    return (
-      <Column 
-        value={this.state.columns[colNum]}
-        onClick={() => this.handleClick(colNum)}
-       />
-    )
+  calcWinner(game, lastMove) {
+    console.log(game)
+    console.log(lastMove)
+    //TODO
   }
 
   handleClick(colNum) {
@@ -36,9 +34,21 @@ class Board extends React.Component {
     newCols[colNum][level] = lastPlayer
 
     this.setState({
-      columns: newCols,
-      lastMove: [lastPlayer, colNum, level]
-    })
+        columns: newCols,
+        lastMove: [lastPlayer, colNum, level]
+      }, 
+      () => {this.calcWinner(this.state.columns, this.state.lastMove)}
+    )
+
+  }
+
+  renderColumn(colNum) {
+    return (
+      <Column 
+        value={this.state.columns[colNum]}
+        onClick={() => this.handleClick(colNum)}
+       />
+    )
   }
 
   render() {
@@ -54,6 +64,7 @@ class Board extends React.Component {
       </div>
     );
   }
+  
 }
 
 export default Board
