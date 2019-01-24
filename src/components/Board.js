@@ -17,9 +17,24 @@ class Board extends React.Component {
   }
 
   calcWinner(game, lastMove) {
-    console.log(game)
-    console.log(lastMove)
-    //TODO
+    const colour = lastMove[0]
+    const column = lastMove[1]
+    const row = lastMove[2]
+
+    let borderedGame = game.slice()
+    const gap = [null, null, null]
+    
+    for (let i=0; i < borderedGame.length; i++) {
+      borderedGame[i] = gap.concat(borderedGame[i]).concat(gap)
+    }
+
+    const border = new Array(12).fill(null)
+    borderedGame.push(border, border, border)
+    borderedGame.unshift(border, border, border)
+
+    console.log(borderedGame)
+    console.log(colour + " " + column + " " + row)
+
   }
 
   handleClick(colNum) {
