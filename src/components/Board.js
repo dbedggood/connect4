@@ -9,17 +9,21 @@ const yellow = yellowCoin
 class Board extends React.Component {
   
   constructor(props) {
+
     super(props)
+
     this.state = {
       columns: new Array(7).fill(0).map(() => new Array(6).fill(null)),
       lastMove: [yellow, null, null]
     }
+
   }
 
   calcWinner(game, lastMove) {
+
     const colour = lastMove[0]
-    const column = lastMove[1]
-    const row = lastMove[2]
+    const column = lastMove[1] + 3
+    const row = lastMove[2] + 3
 
     let borderedGame = game.slice()
     const gap = [null, null, null]
@@ -28,16 +32,28 @@ class Board extends React.Component {
       borderedGame[i] = gap.concat(borderedGame[i]).concat(gap)
     }
 
-    const border = new Array(12).fill(null)
+    const border = new Array(borderedGame[0].length).fill(null)
     borderedGame.push(border, border, border)
     borderedGame.unshift(border, border, border)
 
     console.log(borderedGame)
     console.log(colour + " " + column + " " + row)
 
+    let count = 0
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row] === colour) {
+        count++
+      }
+    }
+
+    if (count >= 4) {
+      alert("Winner")
+    }
+
   }
 
   handleClick(colNum) {
+
     const newCols = this.state.columns.slice()
     let lastPlayer = this.state.lastMove[0]
 
@@ -58,15 +74,18 @@ class Board extends React.Component {
   }
 
   renderColumn(colNum) {
+
     return (
       <Column 
         value={this.state.columns[colNum]}
         onClick={() => this.handleClick(colNum)}
        />
     )
+
   }
 
   render() {
+
     return (
       <div className="game-board">
           {this.renderColumn(0)}
@@ -77,7 +96,8 @@ class Board extends React.Component {
           {this.renderColumn(5)}
           {this.renderColumn(6)}
       </div>
-    );
+    )
+
   }
   
 }
