@@ -36,19 +36,27 @@ class Board extends React.Component {
     borderedGame.push(border, border, border)
     borderedGame.unshift(border, border, border)
 
-    console.log(borderedGame)
-    console.log(colour + " " + column + " " + row)
+    // console.log(borderedGame)
+    // console.log(colour + " " + column + " " + row)
 
     let count = 0
+
     for (let i = -3; i < 4; i++) {
+      console.log(borderedGame[column + i][row])
       if (borderedGame[column + i][row] === colour) {
         count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
       }
     }
 
-    if (count >= 4) {
-      alert("Winner")
-    }
+    console.log('=============================')
 
   }
 
