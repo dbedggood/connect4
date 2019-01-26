@@ -7,7 +7,7 @@ import Board from "./components/Board";
 class Game extends React.Component {
   render() {
     return (
-        <div className="game-board">
+        <div className="game">
           <Board />
         </div>
     );

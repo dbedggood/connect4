@@ -8,7 +8,7 @@ body {
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: lightblue;
   font-weight: bold;
   line-height: 50px;
 }
@@ -47,7 +47,14 @@ body {
 }
 
 .status {
-  margin-top: 0px;
+  margin-top: 10px;
+  font-size: 3em;
+}
+
+.status img {
+  height: 1em;
+  width: 1em;
+  margin-top: 10px;
 }
 
 .unselectable {
@@ -57,4 +64,8 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.hidden {
+  display: none
 }

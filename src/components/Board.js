@@ -71,7 +71,13 @@ class Board extends React.Component {
           {this.renderColumn(5)}
           {this.renderColumn(6)}
         </div>
-        <p>The winner is: <img src={this.state.winner} alt={this.state.winner === null ? '' : 'Winner'}/></p>
+        <p class={this.state.winner === null ? 'status' : 'status hidden'}>
+          Next Turn: <img src={this.state.lastMove[0] === red ? yellow : red} alt='coin' /> 
+        </p>
+
+        <p class={this.state.winner !== null ? 'status' : 'status hidden'}>
+          Winner: <img src={this.state.winner} alt='coin' /> 
+        </p>
       </div>
       
     )
