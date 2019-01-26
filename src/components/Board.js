@@ -7,40 +7,133 @@ const red = redCoin
 const yellow = yellowCoin
 
 class Board extends React.Component {
+  
   constructor(props) {
+
     super(props)
+
     this.state = {
       columns: new Array(7).fill(0).map(() => new Array(6).fill(null)),
-      turn: red
+      lastMove: [yellow, null, null]
     }
+
+  }
+
+  calcWinner(game, lastMove) {
+
+    const colour = lastMove[0]
+    const column = lastMove[1] + 3
+    const row = lastMove[2] + 3
+
+    let borderedGame = game.slice()
+    const gap = [null, null, null]
+    
+    for (let i=0; i < borderedGame.length; i++) {
+      borderedGame[i] = gap.concat(borderedGame[i]).concat(gap)
+    }
+
+    const border = new Array(borderedGame[0].length).fill(null)
+    borderedGame.push(border, border, border)
+    borderedGame.unshift(border, border, border)
+
+    let count = 0
+
+    // Horizontal Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+    // Vertical Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column][row + i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+    // Diagonal (Bottom Left -> Top Right) Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row + i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+    // Diagonal (Top Left -> Bottom Right) Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row - i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+  }
+
+  handleClick(colNum) {
+
+    const newCols = this.state.columns.slice()
+    let lastPlayer = this.state.lastMove[0]
+
+    const level = newCols[colNum].filter(x => x !== null).length
+    if (level >= 6) {return}
+
+    lastPlayer = lastPlayer === red? yellow : red
+
+    newCols[colNum][level] = lastPlayer
+
+    this.setState({
+        columns: newCols,
+        lastMove: [lastPlayer, colNum, level]
+      }, 
+      () => {this.calcWinner(this.state.columns, this.state.lastMove)}
+    )
+
   }
 
   renderColumn(colNum) {
+
     return (
       <Column 
         value={this.state.columns[colNum]}
         onClick={() => this.handleClick(colNum)}
        />
     )
-  }
 
-  handleClick(colNum) {
-    const newCols = this.state.columns.slice();
-    let nextPlayer = this.state.turn
-
-    const level = newCols[colNum].filter(x => x !== null).length
-    if (level >= 6) {return}
-
-    newCols[colNum][level] = nextPlayer
-    nextPlayer = nextPlayer == red? yellow : red
-    this.setState({
-      columns: newCols,
-      turn: nextPlayer
-    })
-    
   }
 
   render() {
+
     return (
       <div className="game-board">
           {this.renderColumn(0)}
@@ -51,8 +144,10 @@ class Board extends React.Component {
           {this.renderColumn(5)}
           {this.renderColumn(6)}
       </div>
-    );
+    )
+
   }
+  
 }
 
 export default Board
