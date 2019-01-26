@@ -36,13 +36,10 @@ class Board extends React.Component {
     borderedGame.push(border, border, border)
     borderedGame.unshift(border, border, border)
 
-    // console.log(borderedGame)
-    // console.log(colour + " " + column + " " + row)
-
     let count = 0
 
+    // Horizontal Win Check
     for (let i = -3; i < 4; i++) {
-      console.log(borderedGame[column + i][row])
       if (borderedGame[column + i][row] === colour) {
         count++
 
@@ -56,7 +53,50 @@ class Board extends React.Component {
       }
     }
 
-    console.log('=============================')
+    // Vertical Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column][row + i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+    // Diagonal (Bottom Left -> Top Right) Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row + i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
+
+    // Diagonal (Top Left -> Bottom Right) Win Check
+    for (let i = -3; i < 4; i++) {
+      if (borderedGame[column + i][row - i] === colour) {
+        count++
+
+        if (count >=4) {
+          alert("Winner")
+          break
+        }
+
+      } else {
+        count = 0
+      }
+    }
 
   }
 
