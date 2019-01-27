@@ -2,5 +2,5 @@
 
 ## To be added:
 * Responsive website design
-* Game status text
+* Restart Button
 * Animations
