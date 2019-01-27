@@ -1,9 +1,11 @@
 # Connect Four
 
 ## To be added:
-* Responsive website design
 * Animations
+* Responsive website design
+* Board size and coin colour customisation
+* *Multiplayer?*
 
----
+<br>
 
 ### Feedback welcome!
