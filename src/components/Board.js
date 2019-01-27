@@ -71,13 +71,26 @@ class Board extends React.Component {
           {this.renderColumn(5)}
           {this.renderColumn(6)}
         </div>
-        <p class={this.state.winner === null ? 'status' : 'status hidden'}>
-          Next Turn: <img src={this.state.lastMove[0] === red ? yellow : red} alt='coin' /> 
-        </p>
+        <div>
+          <p className={this.state.winner === null ? 'status' : 'status hidden'}>
+            Next Turn: <img src={this.state.lastMove[0] === red ? yellow : red} alt='coin' /> 
+          </p>
 
-        <p class={this.state.winner !== null ? 'status' : 'status hidden'}>
-          Winner: <img src={this.state.winner} alt='coin' /> 
-        </p>
+          <p className={this.state.winner !== null ? 'status' : 'status hidden'}>
+            Winner: <img src={this.state.winner} alt='coin' /> 
+          </p>
+
+          <div className='button' onClick={() => {
+            this.setState({
+              columns: new Array(7).fill(0).map(() => new Array(6).fill(null)),
+              lastMove: [yellow, null, null],
+              winner: null
+          })
+          }}>
+            Restart
+          </div>
+
+        </div>
       </div>
       
     )

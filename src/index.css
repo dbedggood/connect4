@@ -4,6 +4,19 @@ body {
   background-color: lightblue;
 }
 
+.button {
+  background-color: blue;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  color: white;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2em;
+}
+
 .circle {
   height: 50px;
   width: 50px;
@@ -47,7 +60,7 @@ body {
 }
 
 .status {
-  margin-top: 10px;
+  margin: 0 0 15px 0;
   font-size: 3em;
 }
 
