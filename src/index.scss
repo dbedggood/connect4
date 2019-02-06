@@ -1,7 +1,11 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
   background-color: lightblue;
+  font-family: "Century Gothic", Futura, sans-serif;
+}
+
+.game {
+  margin: 0 auto;
+  max-width: 500px;
 }
 
 .button {
@@ -14,12 +18,12 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 .circle {
-  height: 50px;
-  width: 50px;
+  height: 2em;
+  width: 2em;
   border-radius: 50%;
   background-color: lightblue;
   font-weight: bold;
@@ -27,21 +31,21 @@ body {
 }
 
 .circle img {
-  height: 50px;
-  width: 50px;
+  height: 2em;
+  width: 2em;
 }
 
 .square {
   background-color: blue;
   font-weight: bold;
-  font-size: 3em;
+  font-size: 1em;
   color: white;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 2em;
+  height: 2em;
   display: block;
   border-width: 10px;
   border-color: rgb(0, 0, 236);
@@ -49,7 +53,6 @@ body {
 }
 
 .column {
-  /* background-color: blue; */
   float: left;
 }
 
@@ -60,14 +63,18 @@ body {
 }
 
 .status {
-  margin: 0 0 15px 0;
-  font-size: 3em;
+  margin: 0 0 10px 0;
+  font-size: 2em;
 }
 
 .status img {
   height: 1em;
   width: 1em;
-  margin-top: 10px;
+}
+
+.icon {
+  position: relative;
+  top: 0.1em;
 }
 
 .unselectable {

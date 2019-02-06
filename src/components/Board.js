@@ -73,11 +73,11 @@ class Board extends React.Component {
         </div>
         <div>
           <p className={this.state.winner === null ? 'status' : 'status hidden'}>
-            Next Turn: <img src={this.state.lastMove[0] === red ? yellow : red} alt='coin' /> 
+            Next Turn: <img className='icon' src={this.state.lastMove[0] === red ? yellow : red} alt='coin' /> 
           </p>
 
           <p className={this.state.winner !== null ? 'status' : 'status hidden'}>
-            Winner: <img src={this.state.winner} alt='coin' /> 
+            Winner: <img className='icon' src={this.state.winner} alt='coin' /> 
           </p>
 
           <div className='button' onClick={() => {
